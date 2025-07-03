@@ -18,14 +18,14 @@ export default function FeatureSection() {
 
           {/* Optimized Image */}
           <div className="flex justify-center mb-8">
-            <Image
-              src="https://wallpapertag.com/wallpaper/middle/3/0/5/434694-download-free-cute-kitten-wallpapers-1920x1200-for-mobile-hd.jpg"
-              alt="Sevimli Kedi"
-              width={800}
-              height={400}
-              className="rounded-lg shadow-lg object-cover"
-              style={{ maxHeight: "400px", width: "100%", height: "auto" }}
-            />
+          <Image
+            src="/images/kittens.webp"
+            alt="Sevimli Kedi"
+            width={800}
+            height={400}
+            className="rounded-lg shadow-lg object-cover"
+            style={{ maxHeight: "400px", width: "100%", height: "auto" }}
+          />
           </div>
 
           <div className="flex flex-col items-center justify-center">
