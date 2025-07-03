@@ -4,7 +4,47 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+// Define a type for the allowed color keys
+type ColorKey = "indigo" | "green" | "red";
+
 export default function FeatureSection() {
+  // Define a mapping for color-related Tailwind classes to avoid dynamic class generation issues
+  const colorClasses: Record<ColorKey, { bg: string; text: string; hoverText: string; }> = {
+    indigo: {
+      bg: "bg-indigo-100",
+      text: "text-indigo-500",
+      hoverText: "hover:text-indigo-600",
+    },
+    green: {
+      bg: "bg-green-100",
+      text: "text-green-500",
+      hoverText: "hover:text-green-600",
+    },
+    red: {
+      bg: "bg-red-100",
+      text: "text-red-500",
+      hoverText: "hover:text-red-600",
+    },
+  };
+
+  const featureItems: { color: ColorKey; title: string; description: string; }[] = [ // Updated type for title and description
+    {
+      color: "indigo",
+      title: "Çocuk Merkezli Yaklaşım",
+      description: "Her çocuğun bireysel gelişim hızına saygı duyarak, kendi potansiyellerini keşfetmelerine olanak tanırız. Eğitim, çocuğun ilgi alanlarına göre şekillenir.",
+    },
+    {
+      color: "green",
+      title: "Hazırlanmış Ortam",
+      description: "Çocukların bağımsız öğrenmelerini destekleyen, düzenli ve estetik bir sınıf ortamı sunarız. Materyaller, keşfetmeye ve öğrenmeye teşvik eder.",
+    },
+    {
+      color: "red",
+      title: "Özgürlük ve Sorumluluk",
+      description: "Çocuklara seçim yapma özgürlüğü tanırken, bu özgürlüğün getirdiği sorumlulukları da öğretiriz. Kendi öğrenme süreçlerini yönetmelerini sağlarız.",
+    },
+  ];
+
   return (
     <section className="py-12 bg-white dark:bg-gray-800">
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -18,43 +58,37 @@ export default function FeatureSection() {
 
           {/* Optimized Image */}
           <div className="flex justify-center mb-8">
-          <Image
-            src="/images/kittens.webp"
-            alt="Sevimli Kedi"
-            width={800}
-            height={400}
-            className="rounded-lg shadow-lg object-cover"
-            style={{ maxHeight: "400px", width: "100%", height: "auto" }}
-          />
+            <Image
+              src="/images/kittens.webp"
+              alt="Sevimli Kedi" // 
+              width={800} // Specify intrinsic width for next/image optimization
+              height={400} // Specify intrinsic height for next/image optimization
+              className="rounded-lg shadow-lg object-cover w-full max-h-[400px]" // Use max-h for max height
+            />
           </div>
 
           <div className="flex flex-col items-center justify-center">
             <span className="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">
-              Insight
+              Montessori Yaklaşımı
             </span>
           </div>
           <h1 className="text-4xl font-medium text-gray-700 text-center mt-6 dark:text-white">
-            Full-Funnel Social Analytics
+            Montessori Eğitimiyle Parlak Gelecekler
           </h1>
           <p className="text-center mt-6 text-lg font-light text-gray-500 dark:text-gray-400">
-            The time is now for it to be okay to be great. For being a bright color. For
-            standing out.
+            Montessori felsefesi, her çocuğun doğuştan gelen öğrenme arzusunu ve bireysel yeteneklerini ortaya çıkarmayı hedefler. Biz de bu yolda onlara rehberlik ediyoruz.
           </p>
         </div>
 
         {/* Feature Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-          {[
-            { color: "indigo", text: "Social conversations" },
-            { color: "green", text: "Social conversations" },
-            { color: "red", text: "Social conversations" },
-          ].map((item, idx) => (
+          {featureItems.map((item, idx) => (
             <div
               key={idx}
               className="p-8 bg-white dark:bg-gray-900 rounded-lg shadow-md"
             >
               <div
-                className={`bg-${item.color}-100 rounded-full w-16 h-16 flex justify-center items-center text-${item.color}-500 shadow-2xl`}
+                className={`${colorClasses[item.color].bg} rounded-full w-16 h-16 flex justify-center items-center ${colorClasses[item.color].text} shadow-2xl`}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -70,19 +104,18 @@ export default function FeatureSection() {
                 </svg>
               </div>
               <h2
-                className={`uppercase mt-6 text-${item.color}-500 font-medium mb-3`}
+                className={`uppercase mt-6 ${colorClasses[item.color].text} font-medium mb-3`}
               >
-                {item.text}
+                {item.title} {/* Updated to item.title */}
               </h2>
               <p className="font-light text-sm text-gray-500 mb-3 dark:text-gray-400">
-                We get insulted by others, lose trust for those others. We get back
-                stabbed by friends. It becomes harder for us to give others a hand.
+                {item.description} {/* Updated to item.description */}
               </p>
               <Link
                 href="/"
-                className={`text-${item.color}-500 flex items-center hover:text-${item.color}-600`}
+                className={`${colorClasses[item.color].text} flex items-center ${colorClasses[item.color].hoverText}`}
               >
-                More about us
+                Daha Fazlası
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5 ml-1"
