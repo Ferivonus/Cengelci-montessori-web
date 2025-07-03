@@ -3,11 +3,28 @@ import React from 'react';
 // Define the FeatureSection component
 export default function FeatureSection() {
   return (
-    <section className="py-12 bg-white dark:bg-gray-800"> {/* Added a section wrapper for better structure */}
+    <section className="py-12 bg-white dark:bg-gray-800"> {/* py-12 genel dikey boşluğu sağlar */}
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="p-8">
-          <div className="flex flex-col items-center justify-center"> {/* Corrected 'felx-col' to 'flex-col' */}
+          {/* Added text above the Hero Image */}
+          <div className="text-center mb-4 mt-4"> {/* Metni ortalamak, altına ve üstüne boşluk vermek için */}
+            <p className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+              Çocuklarınızı Montessori eğitimiyle yeni dünyaya hazırlıyoruz!
+            </p>
+          </div>
+
+          {/* Hero Image */}
+          <div className="flex justify-center mb-8">
+            <img
+              src="https://wallpapertag.com/wallpaper/middle/3/0/5/434694-download-free-cute-kitten-wallpapers-1920x1200-for-mobile-hd.jpg" // 
+              alt="Sevimli Kedi" // Resim açıklaması
+              className="rounded-lg shadow-lg max-w-full h-auto object-cover" // Tailwind sınıfları ile stil
+              style={{ maxHeight: '400px' }} // Maksimum yüksekliği belirle
+            />
+          </div>
+
+          <div className="flex flex-col items-center justify-center">
             <span
               className="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm"
             >
