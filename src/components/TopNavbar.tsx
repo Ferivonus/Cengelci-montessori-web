@@ -32,7 +32,7 @@ export default function TopNavbar() {
               <div className="flex items-center">
                 <Link href="#" className="flex items-center">
                   <Image
-                    src="/images/logo.svg"
+                    src="/images/cengelci-logo.svg"
                     alt="Landwind Logo"
                     width={36}
                     height={36}
