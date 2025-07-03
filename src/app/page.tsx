@@ -1,11 +1,13 @@
 import TopNavbar from "../components/TopNavbar";
+import FeatureSection from '../components/FeatureSection';
 
 export default function Home() {
   return (
     <div>
       <TopNavbar />
-      <main className="pt-24 text-center">
-        <h1 className="text-3xl font-bold">Sayfa içeriği burada</h1>
+      <main >
+
+      <FeatureSection />
       </main>
     </div>
   );
