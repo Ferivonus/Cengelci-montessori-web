@@ -1,6 +1,6 @@
 "use client";
 
-import { Disclosure } from "@headlessui/react";
+import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
 import Link from "next/link";
 import Image from "next/image";
 import DarkSwitch from "./DarkSwitch";
@@ -81,7 +81,7 @@ export default function TopNavbar() {
 
                 {/* Mobile Toggle Button */}
                 <div className="lg:hidden ml-2">
-                  <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:bg-gray-100 focus:outline-none dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-2 dark:focus:ring-gray-600">
+                  <DisclosureButton className="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:bg-gray-100 focus:outline-none dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-2 dark:focus:ring-gray-600">
                     <span className="sr-only">Open main menu</span>
                     {open ? (
                       <svg
@@ -108,14 +108,14 @@ export default function TopNavbar() {
                         />
                       </svg>
                     )}
-                  </Disclosure.Button>
+                  </DisclosureButton>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Mobile Menu */}
-          <Disclosure.Panel className="lg:hidden">
+          <DisclosurePanel className="lg:hidden">
             <div className="space-y-1 px-2 pt-2 pb-3">
               {navigation.map((item) => (
                 <Link
@@ -140,7 +140,7 @@ export default function TopNavbar() {
                 Download
               </a>
             </div>
-          </Disclosure.Panel>
+          </DisclosurePanel>
         </>
       )}
     </Disclosure>
