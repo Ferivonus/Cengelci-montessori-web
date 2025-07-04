@@ -6,13 +6,12 @@ import Link from "next/link";
 import Image from "next/image";
 import DarkSwitch from "./DarkSwitch";
 
+// Güncellenmiş navigasyon linkleri (Bize Katılın çıkarıldı)
 const navigation = [
-  { name: "Home", href: "/" },
-  { name: "Company", href: "/company" },
-  { name: "Marketplace", href: "/marketplace" },
-  { name: "Features", href: "/features" },
-  { name: "Team", href: "/team" },
-  { name: "Contact", href: "/contact" },
+  { name: "Montessori Eğitimi", href: "/montessori-egitimi" },
+  { name: "Okulumuz", href: "/okulumuz" },
+  { name: "Blog", href: "/blog" },
+  { name: "İletişim", href: "/iletisim" },
 ];
 
 function classNames(...classes: string[]) {
@@ -31,24 +30,24 @@ export default function TopNavbar() {
         <>
           <div className="mx-auto max-w-screen-xl px-4 py-2.5 sm:px-6 lg:px-8">
             <div className="flex h-16 items-center justify-between">
-              {/* Logo */}
+              {/* Logo ve Okul Adı - Ana Sayfa linki olarak kalır */}
               <div className="flex items-center">
                 <Link href="/" className="flex items-center">
                   <Image
                     src="/images/cengelci-logo.svg"
-                    alt="Cengelci Logo"
+                    alt="Çengelci Montessori Logo" // Alt metin güncellendi
                     width={36}
                     height={36}
                     className="h-6 mr-3 sm:h-9"
                   />
                   <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-                    Cengelci
+                    Çengelci Montessori
                   </span>
                 </Link>
               </div>
 
-              {/* Desktop Menu */}
-              <div className="hidden lg:flex space-x-8">
+              {/* Masaüstü Menüsü - Logo ile arasına boşluk eklendi */}
+              <div className="hidden lg:flex space-x-8 ml-12"> {/* ml-12 ile sola doğru boşluk eklendi */}
                 {navigation.map((item) => {
                   const isCurrent = pathname === item.href;
                   return (
@@ -68,23 +67,23 @@ export default function TopNavbar() {
                 })}
               </div>
 
-              {/* Right actions: Download + Switch + Mobile Toggle */}
+              {/* Sağ Eylemler: Bize Katılın Butonu, Tema Değiştirici ve Mobil Toggle */}
               <div className="flex items-center lg:order-2 ml-auto space-x-2">
-                {/* Download Button */}
-                <a
-                  href="https://themesberg.com/product/tailwind-css/landing-page"
+                {/* Masaüstü "Bize Katılın" Butonu */}
+                <Link
+                  href="/bize-katilin"
                   className="hidden lg:inline-block text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800"
                 >
-                  Download
-                </a>
+                  Bize Katılın
+                </Link>
 
-                {/* Theme Switch */}
+                {/* Tema Değiştirici */}
                 <DarkSwitch />
 
-                {/* Mobile Toggle */}
+                {/* Mobil Toggle Butonu */}
                 <div className="lg:hidden ml-2">
                   <DisclosureButton
-                    aria-label="Toggle navigation menu"
+                    aria-label="Navigasyon menüsünü aç/kapat"
                     aria-expanded={open}
                     className="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600"
                   >
@@ -122,7 +121,7 @@ export default function TopNavbar() {
             </div>
           </div>
 
-          {/* Mobile Menu Panel */}
+          {/* Mobil Menü Paneli */}
           <DisclosurePanel className="lg:hidden">
             <div className="space-y-1 px-2 pt-2 pb-3">
               {navigation.map((item) => {
@@ -143,13 +142,13 @@ export default function TopNavbar() {
                 );
               })}
 
-              {/* Mobile Download Button */}
-              <a
-                href="https://themesberg.com/product/tailwind-css/landing-page"
+              {/* Mobil "Bize Katılın" Butonu - Zaten doğru yerdeydi */}
+              <Link
+                href="/bize-katilin"
                 className="block w-full text-center text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 py-2 mt-2 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800"
               >
-                Download
-              </a>
+                Bize Katılın
+              </Link>
             </div>
           </DisclosurePanel>
         </>
