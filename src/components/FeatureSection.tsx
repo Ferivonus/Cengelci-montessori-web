@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 // Define a type for the allowed color keys
-type ColorKey = "indigo" | "green" | "red";
+type ColorKey = "indigo" | "green" | "amber"; // "red" yerine "amber" kullanıldı
 
 // Color mapping for Tailwind classes
 const colorClasses: Record<ColorKey, { bg: string; text: string; hoverText: string }> = {
@@ -19,10 +19,10 @@ const colorClasses: Record<ColorKey, { bg: string; text: string; hoverText: stri
     text: "text-green-500",
     hoverText: "hover:text-green-600",
   },
-  red: {
-    bg: "bg-red-100",
-    text: "text-red-500",
-    hoverText: "hover:text-red-600",
+  amber: { // Kırmızı yerine kehribar tonları kullanıldı
+    bg: "bg-amber-100",
+    text: "text-amber-500",
+    hoverText: "hover:text-amber-600",
   },
 };
 
@@ -49,7 +49,7 @@ const montessoriPrinciples: {
   },
   {
     key: "ozgurluk-sorumluluk",
-    color: "red",
+    color: "amber", // Renk anahtarı "amber" olarak güncellendi
     title: "Özgürlük ve Sorumluluk",
     description:
       "Çocuklarımıza sınırlar içinde özgürlük tanıyarak, kendi kararlarını vermeyi ve bu kararların sorumluluğunu almayı öğretiyoruz. Bu sayede iç disiplinleri gelişir.",
@@ -124,7 +124,7 @@ export default function FeatureSection() {
                 href={`/montessori-prensipleri#${item.key}`}
                 className={`${colorClasses[item.color].text} flex items-center ${colorClasses[item.color].hoverText}`}
               >
-                Daha Fazlası
+                Daha Fazlası Blogumuzda
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5 ml-1"
