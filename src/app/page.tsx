@@ -1,5 +1,6 @@
 import TopNavbar from "../components/TopNavbar";
 import FeatureSection from '../components/FeatureSection';
+import AboutSchoolSection from "@/components/AboutSchoolSection";
 
 export default function Home() {
   return (
@@ -7,7 +8,9 @@ export default function Home() {
       <TopNavbar />
       <main >
 
-      <FeatureSection />
+        <FeatureSection />
+        
+        <AboutSchoolSection />
       </main>
     </div>
   );
