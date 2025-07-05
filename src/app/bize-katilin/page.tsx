@@ -1,4 +1,3 @@
-// app/bize-katilin/page.tsx (örnek)
 import JobApplicationSection from "@/components/fully_pages/JobApplicationSection";
 import TopNavbar from "@/components/TopNavbar";
 
