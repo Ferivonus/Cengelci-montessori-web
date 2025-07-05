@@ -25,11 +25,11 @@ export default function JobApplicationSection() {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value, type, checked } = e.target as HTMLInputElement;
+    const { name, value, type, checked } = e.target as HTMLInputElement; // Type assertion for checkbox
 
     setFormData((prevData) => ({
       ...prevData,
-      [name]: type === "checkbox" ? checked : value,
+      [name]: type === "checkbox" ? checked : value, // Checkbox için özel handling
     }));
 
     // E-posta alanı değiştiğinde doğrulama yap
@@ -81,7 +81,7 @@ export default function JobApplicationSection() {
   };
 
   return (
-    <section className="py-16 bg-white dark:bg-gray-800 pt-25">
+    <section className="py-16 bg-white dark:bg-gray-800 pt-20">
       <div className="max-w-4xl mx-auto px-6 text-center">
         {/* Başlık */}
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-6">
@@ -201,7 +201,7 @@ export default function JobApplicationSection() {
                   required // Artık zorunlu
                 />
                 <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
-                  Lütfen başvurunuzu tamamlamadan önce CV'nizi ve varsa portfolyonuzu tek bir PDF dosyası olarak yükleyiniz. (Maks. 5MB)
+                  Lütfen başvurunuzu tamamlamadan önce CV&apos;nizi ve varsa portfolyonuzu tek bir PDF dosyası olarak yükleyiniz. (Maks. 5MB)
                   {/* Gerçek uygulamada dosya boyutu ve tipi kontrolü yapılmalıdır. */}
                 </p>
               </div>

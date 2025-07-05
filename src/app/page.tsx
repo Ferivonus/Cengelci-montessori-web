@@ -11,6 +11,7 @@ export default function Home() {
         <FeatureSection />
         
         <AboutSchoolSection />
+        // Motivasyon mektubu için state
       </main>
     </div>
   );
