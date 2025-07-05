@@ -10,33 +10,17 @@ export default function AboutSchoolSection() {
     {
       key: "ders-anlari",
       name: "Ders Anları",
-      images: [
-        { src: "/images/kittens.webp", alt: "Çocuklar derste etkinlik yaparken" },
-        { src: "/images/kittens.webp", alt: "Öğretmen ve öğrenciler birlikte öğreniyor" },
-        { src: "/images/kittens.webp", alt: "Montessori materyalleriyle çalışan çocuk" },
-        { src: "/images/kittens.webp", alt: "Grupça ders aktivitesi" },
-        { src: "/images/kittens.webp", alt: "Bireysel öğrenme anı" },
-        { src: "/images/kittens.webp", alt: "Öğrenci sunum yapıyor" },
-      ],
+      images: Array(6).fill({ src: "/images/kittens.webp", alt: "" }),
     },
     {
       key: "etkinlikler",
       name: "Etkinlikler",
-      images: [
-        { src: "/images/kittens.webp", alt: "Okulda sanat etkinliği" },
-        { src: "/images/kittens.webp", alt: "Açık hava oyun etkinliği" },
-        { src: "/images/kittens.webp", alt: "Müzik dersi etkinliği" },
-        { src: "/images/kittens.webp", alt: "Bilim deneyi etkinliği" },
-      ],
+      images: Array(4).fill({ src: "/images/kittens.webp", alt: "" }),
     },
     {
       key: "okul-ortami",
       name: "Okul Ortamı",
-      images: [
-        { src: "/images/kittens.webp", alt: "Okul içi koridor" },
-        { src: "/images/kittens.webp", alt: "Montessori sınıf düzeni" },
-        { src: "/images/kittens.webp", alt: "Anaokulu oyun alanı" },
-      ],
+      images: Array(3).fill({ src: "/images/kittens.webp", alt: "" }),
     },
   ];
 
@@ -52,7 +36,7 @@ export default function AboutSchoolSection() {
         <div className="mb-10">
           <Image
             src="/images/kittens.webp"
-            alt="Özel Çengelci Montessori Anaokulu dış görünüşü"
+            alt=""
             width={800}
             height={400}
             className="rounded-lg shadow-lg object-cover w-full max-h-[400px] mx-auto"
@@ -63,7 +47,7 @@ export default function AboutSchoolSection() {
         <p className="text-lg text-gray-600 dark:text-gray-300 mb-12 leading-relaxed max-w-3xl mx-auto">
           <strong>Özel Çengelci Montessori Anaokulu</strong> olarak, çocuklarımızın bireysel farklılıklarını
           gözeten, onların özgürlüklerini ve sorumluluk duygularını geliştiren bir eğitim anlayışını
-          benimsiyoruz. Kurumumuz Milli Eğitim Bakanlığı&apos;na bağlı olup Montessori pedagojisini temel alan
+          benimsiyoruz. Kurumumuz Milli Eğitim Bakanlığı’na bağlı olup Montessori pedagojisini temel alan
           özel bir eğitim programı uygular.
         </p>
 
@@ -88,7 +72,7 @@ export default function AboutSchoolSection() {
             <p className="text-gray-600 dark:text-gray-300">
               Çocuklarımızın bireysel ritmine saygı gösteren, özgür seçimler yapabilecekleri,
               keşfetmeye ve denemeye cesaretlendiren bir ortam sunuyoruz.
-              Montessori&apos;nin bilimsel yaklaşımını sevgiyle harmanlayarak özgün bir eğitim modeli oluşturduk.
+              Montessori’nin bilimsel yaklaşımını sevgiyle harmanlayarak özgün bir eğitim modeli oluşturduk.
             </p>
           </div>
         </div>
@@ -98,7 +82,7 @@ export default function AboutSchoolSection() {
           <div className="md:w-1/2">
             <Image
               src="/images/kittens.webp"
-              alt="Montessori sınıfından genel görünüm"
+              alt=""
               width={600}
               height={400}
               className="rounded-lg shadow-lg object-cover w-full"
@@ -120,7 +104,7 @@ export default function AboutSchoolSection() {
           <div className="md:w-1/2">
             <Image
               src="/images/kittens.webp"
-              alt="Okulun geniş ve yeşil bahçesi, oyun parkı"
+              alt=""
               width={600}
               height={400}
               className="rounded-lg shadow-lg object-cover w-full"
