@@ -1,0 +1,18 @@
+// app/bize-katilin/page.tsx (örnek)
+
+import JobApplicationSection from "@/components/JobApplicationSection";
+import TopNavbar from "@/components/TopNavbar";
+
+export default function BizeKatilinPage() {
+    return (
+        <div>
+          <TopNavbar />
+          <main >
+    
+            <JobApplicationSection />
+    
+          </main>
+        </div>
+      );
+}
+
