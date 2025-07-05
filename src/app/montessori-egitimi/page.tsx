@@ -1,4 +1,5 @@
 import MontessoriEducationPage from "@/components/fully_pages/MontessoriEducationPage";
+import FooterSection from "@/components/generals/FooterSection";
 import TopNavbar from "@/components/generals/TopNavbar";
 
 export default function MontessoriEgitimi() {
@@ -7,7 +8,13 @@ export default function MontessoriEgitimi() {
         <TopNavbar />
           <main>
             <MontessoriEducationPage />
-          </main>
+      </main>
+      
+      <footer>
+      
+                <FooterSection />
+      
+              </footer>
     </div>
     
   );
