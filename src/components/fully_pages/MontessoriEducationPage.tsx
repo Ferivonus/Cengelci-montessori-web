@@ -2,11 +2,12 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link"; // Blog linki için eklendi
+import Link from "next/link";
 
 export default function MontessoriEducationPage() {
   return (
-    <section className="py-16 bg-white dark:bg-gray-800 pt-20"> {/* Navbar için üst boşluk eklendi */}
+    <section className="py-16 bg-white dark:bg-gray-800 pt-20">
+      {/* Navbar için üst boşluk eklendi */}
       <div className="max-w-6xl mx-auto px-6 text-center">
         {/* Başlık */}
         <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-8">
@@ -80,48 +81,25 @@ export default function MontessoriEducationPage() {
           </div>
         </div>
 
-        {/* Montessori Eğitiminin Temel İlkeleri (Kısa Özet) */}
+        {/* Montessori Eğitiminin Temel İlkeleri */}
         <div className="mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-8">
             Montessori&apos;nin Temel İlkeleri
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow">
-              <h3 className="text-xl font-semibold text-indigo-600 mb-2">Hazırlanmış Ortam</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Çocuğun kendi kendine öğrenebileceği, düzenli ve erişilebilir materyallerle dolu bir sınıf ortamı.
-              </p>
-            </div>
-            <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow">
-              <h3 className="text-xl font-semibold text-green-600 mb-2">Çocuğu Takip Et</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Eğitmenin, çocuğun ilgi alanlarını ve gelişim hızını gözlemleyerek rehberlik etmesi.
-              </p>
-            </div>
-            <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow">
-              <h3 className="text-xl font-semibold text-amber-600 mb-2">Özgür Seçim ve Sorumluluk</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Çocuğun kendi öğrenme yolunu seçmesine izin verilmesi ve bu seçimlerin sorumluluğunu alması.
-              </p>
-            </div>
-            <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow">
-              <h3 className="text-xl font-semibold text-purple-600 mb-2">Karma Yaş Grupları</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Farklı yaşlardaki çocukların bir arada öğrenerek sosyalleşmesi ve birbirlerinden ilham alması.
-              </p>
-            </div>
-            <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow">
-              <h3 className="text-xl font-semibold text-pink-600 mb-2">Somut Materyaller</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Soyut kavramların somut materyaller aracılığıyla deneyimlenerek öğrenilmesi.
-              </p>
-            </div>
-            <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow">
-              <h3 className="text-xl font-semibold text-blue-600 mb-2">Öğretmenin Rolü</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Öğretmenin bir rehber, gözlemci ve ortam düzenleyicisi olarak hareket etmesi.
-              </p>
-            </div>
+            {[
+              ["Hazırlanmış Ortam", "Çocuğun kendi kendine öğrenebileceği, düzenli ve erişilebilir materyallerle dolu bir sınıf ortamı.", "text-indigo-600"],
+              ["Çocuğu Takip Et", "Eğitmenin, çocuğun ilgi alanlarını ve gelişim hızını gözlemleyerek rehberlik etmesi.", "text-green-600"],
+              ["Özgür Seçim ve Sorumluluk", "Çocuğun kendi öğrenme yolunu seçmesine izin verilmesi ve bu seçimlerin sorumluluğunu alması.", "text-amber-600"],
+              ["Karma Yaş Grupları", "Farklı yaşlardaki çocukların bir arada öğrenerek sosyalleşmesi ve birbirlerinden ilham alması.", "text-purple-600"],
+              ["Somut Materyaller", "Soyut kavramların somut materyaller aracılığıyla deneyimlenerek öğrenilmesi.", "text-pink-600"],
+              ["Öğretmenin Rolü", "Öğretmenin bir rehber, gözlemci ve ortam düzenleyicisi olarak hareket etmesi.", "text-blue-600"],
+            ].map(([title, desc, color], i) => (
+              <div key={i} className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow">
+                <h3 className={`text-xl font-semibold ${color} mb-2`}>{title}</h3>
+                <p className="text-gray-600 dark:text-gray-300">{desc}</p>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -133,11 +111,17 @@ export default function MontessoriEducationPage() {
             problem çözme becerileri kazanmalarına ve yaşam boyu öğrenmeye açık bireyler olmalarına yardımcı olur.
           </p>
           <Link
-            href="/blog/montessori-egitimi-detayli" // Detaylı blog yazısı linki
+            href="/blog/montessori-egitimi-detayli"
             className="inline-flex items-center justify-center px-5 py-2 text-base font-medium text-white bg-purple-600 rounded-lg hover:bg-purple-700 focus:ring-4 focus:ring-purple-300 dark:focus:ring-purple-900 transition-colors duration-200"
           >
             Daha fazla bilgi için blog yazımızı okuyun
-            <svg className="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clipRule="evenodd"></path></svg>
+            <svg className="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                fillRule="evenodd"
+                d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                clipRule="evenodd"
+              />
+            </svg>
           </Link>
         </div>
       </div>
