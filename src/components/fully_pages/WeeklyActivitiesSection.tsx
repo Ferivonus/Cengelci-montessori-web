@@ -23,15 +23,6 @@ export default function WeeklyActivitiesSection() {
       imageAlt: "Küçük çocuklar için Toddler atölyesi etkinliği",
       link: "/iletisim",
     },
-    // İhtiyaç duyarsanız buraya daha fazla etkinlik ekleyebilirsiniz
-    // {
-    //   id: 3,
-    //   title: "Yeni Etkinlik",
-    //   date: "Tarih / Saat",
-    //   imageSrc: "/images/kittens.webp",
-    //   imageAlt: "Yeni etkinlik görseli",
-    //   link: "/iletisim",
-    // },
   ];
 
   return (
