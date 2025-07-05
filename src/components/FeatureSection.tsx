@@ -1,173 +1,196 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 
-// Define a type for the allowed color keys
-type ColorKey = "indigo" | "green" | "amber"; // "red" yerine "amber" kullanıldı
+export default function AboutSchoolSection() {
+  const [activeTab, setActiveTab] = useState("ders-anlari");
 
-// Color mapping for Tailwind classes
-const colorClasses: Record<ColorKey, { bg: string; text: string; hoverText: string }> = {
-  indigo: {
-    bg: "bg-indigo-100",
-    text: "text-indigo-500",
-    hoverText: "hover:text-indigo-600",
-  },
-  green: {
-    bg: "bg-green-100",
-    text: "text-green-500",
-    hoverText: "hover:text-green-600",
-  },
-  amber: { // Kırmızı yerine kehribar tonları kullanıldı
-    bg: "bg-amber-100",
-    text: "text-amber-500",
-    hoverText: "hover:text-amber-600",
-  },
-};
+  const galleryTabs = [
+    {
+      key: "ders-anlari",
+      name: "Ders Anları",
+      images: [
+        { src: "/images/kittens.webp", alt: "Çocuklar derste etkinlik yaparken" },
+        { src: "/images/kittens.webp", alt: "Öğretmen ve öğrenciler birlikte öğreniyor" },
+        { src: "/images/kittens.webp", alt: "Montessori materyalleriyle çalışan çocuk" },
+        { src: "/images/kittens.webp", alt: "Grupça ders aktivitesi" },
+        { src: "/images/kittens.webp", alt: "Bireysel öğrenme anı" },
+        { src: "/images/kittens.webp", alt: "Öğrenci sunum yapıyor" },
+      ],
+    },
+    {
+      key: "etkinlikler",
+      name: "Etkinlikler",
+      images: [
+        { src: "/images/kittens.webp", alt: "Okulda sanat etkinliği" },
+        { src: "/images/kittens.webp", alt: "Açık hava oyun etkinliği" },
+        { src: "/images/kittens.webp", alt: "Müzik dersi etkinliği" },
+        { src: "/images/kittens.webp", alt: "Bilim deneyi etkinliği" },
+      ],
+    },
+    {
+      key: "okul-ortami",
+      name: "Okul Ortamı",
+      images: [
+        { src: "/images/kittens.webp", alt: "Okul içi koridor" },
+        { src: "/images/kittens.webp", alt: "Montessori sınıf düzeni" },
+        { src: "/images/kittens.webp", alt: "Anaokulu oyun alanı" },
+      ],
+    },
+  ];
 
-// Montessori principles content
-const montessoriPrinciples: {
-  key: string;
-  color: ColorKey;
-  title: string;
-  description: string;
-}[] = [
-  {
-    key: "cocuk-merkezli",
-    color: "indigo",
-    title: "Çocuk Merkezli Yaklaşım",
-    description:
-      "Her çocuğun kendine özgü potansiyelini ve öğrenme hızını merkeze alıyoruz. Bireysel ilgi ve yeteneklerini keşfetmeleri için onlara özel bir yol haritası sunuyoruz.",
-  },
-  {
-    key: "hazirlanmis-ortam",
-    color: "green",
-    title: "Hazırlanmış Ortam",
-    description:
-      "Özenle tasarlanmış sınıf ortamlarımız, çocukların bağımsızlıklarını geliştirmeleri, keşfetmeleri ve kendi hızlarında öğrenmeleri için ideal bir zemin sunar.",
-  },
-  {
-    key: "ozgurluk-sorumluluk",
-    color: "amber", // Renk anahtarı "amber" olarak güncellendi
-    title: "Özgürlük ve Sorumluluk",
-    description:
-      "Çocuklarımıza sınırlar içinde özgürlük tanıyarak, kendi kararlarını vermeyi ve bu kararların sorumluluğunu almayı öğretiyoruz. Bu sayede iç disiplinleri gelişir.",
-  },
-];
-
-export default function FeatureSection() {
   return (
-    <section className="py-12 bg-white dark:bg-gray-800">
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header Section */}
-        <div className="p-8">
-          <div className="text-center mb-4 mt-4">
-            <p className="text-xl font-semibold text-gray-800 dark:text-gray-200">
-              Çocuklarınızı Montessori eğitimiyle yeni dünyaya hazırlıyoruz!
+    <section className="py-16 bg-gray-50 dark:bg-gray-900">
+      <div className="max-w-6xl mx-auto px-6 text-center">
+        {/* Başlık */}
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-6">
+          Okulumuzu Yakından Tanıyın
+        </h2>
+
+        {/* Okul Fotoğrafı */}
+        <div className="mb-10">
+          <Image
+            src="/images/kittens.webp"
+            alt="Özel Çengelci Montessori Anaokulu dış görünüşü"
+            width={800}
+            height={400}
+            className="rounded-lg shadow-lg object-cover w-full h-auto max-h-[400px] mx-auto" // h-auto eklendi
+          />
+        </div>
+
+        {/* Tanıtım Paragrafı */}
+        <p className="text-lg text-gray-600 dark:text-gray-300 mb-12 leading-relaxed max-w-3xl mx-auto">
+          <strong>Özel Çengelci Montessori Anaokulu</strong> olarak, çocuklarımızın bireysel farklılıklarını
+          gözeten, onların özgürlüklerini ve sorumluluk duygularını geliştiren bir eğitim anlayışını
+          benimsiyoruz. Kurumumuz Milli Eğitim Bakanlığı&apos;na bağlı olup Montessori pedagojisini temel alan
+          özel bir eğitim programı uygular.
+        </p>
+
+        {/* Vizyon - Misyon - Eğitim Modeli */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+            <h3 className="text-xl font-semibold text-indigo-600 mb-2">Vizyonumuz</h3>
+            <p className="text-gray-600 dark:text-gray-300">
+              Sevgiyle yoğrulmuş bir eğitimle; kendi ayakları üzerinde durabilen, empati kurabilen,
+              özgüvenli ve mutlu bireyler yetiştirmeyi hayal ediyoruz. Her çocuğun içindeki ışığı parlatmak için buradayız.
             </p>
           </div>
-
-          {/* Optimized Local Image */}
-          <div className="flex justify-center mb-8">
-            <Image
-              src="/images/kittens.webp"
-              alt="Sevimli Kedi"
-              width={800}
-              height={400}
-              className="rounded-lg shadow-lg object-cover w-full max-h-[400px]"
-            />
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+            <h3 className="text-xl font-semibold text-green-600 mb-2">Misyonumuz</h3>
+            <p className="text-gray-600 dark:text-gray-300">
+              Merak eden, keşfeden, düşünen ve sevgiyle büyüyen çocuklar... Bizim için her yeni gün;
+              onların içindeki potansiyeli ortaya çıkarmak, onlara sevgi dolu bir öğrenme yolculuğu sunmak için bir fırsat.
+            </p>
           </div>
-
-          <div className="flex flex-col items-center justify-center">
-            <span className="rounded-full bg-indigo-500 px-2 py-1 text-white uppercase text-sm">
-              Montessori Yaklaşımı
-            </span>
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+            <h3 className="text-xl font-semibold text-amber-600 mb-2">Eğitim Modelimiz</h3>
+            <p className="text-gray-600 dark:text-gray-300">
+              Çocuklarımızın bireysel ritmine saygı gösteren, özgür seçimler yapabilecekleri,
+              keşfetmeye ve denemeye cesaretlendiren bir ortam sunuyoruz.
+              Montessori&apos;nin bilimsel yaklaşımını sevgiyle harmanlayarak özgün bir eğitim modeli oluşturduk.
+            </p>
           </div>
-          <h1 className="text-4xl font-medium text-gray-700 text-center mt-6 dark:text-white">
-            Montessori Eğitimiyle Parlak Gelecekler İnşa Ediyoruz
-          </h1>
-          <p className="text-center mt-6 text-xl font-light text-gray-500 dark:text-gray-400 leading-relaxed">
-            Montessori felsefesi, her çocuğun doğuştan gelen merakını ve öğrenme arzusunu temel alır. Okulumuzda,
-            çocuklarımızın potansiyellerini tam olarak ortaya çıkararak, onları geleceğin bilinçli ve bağımsız bireyleri
-            olarak yetiştirmek için rehberlik ediyoruz.
-          </p>
         </div>
 
-        {/* Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-          {montessoriPrinciples.map((item) => (
-            <div key={item.key} className="p-8 bg-white dark:bg-gray-900 rounded-lg shadow-md">
-              <div
-                className={`${colorClasses[item.color].bg} rounded-full w-16 h-16 flex justify-center items-center ${colorClasses[item.color].text} shadow-2xl`}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-8 w-8"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
-                  />
-                </svg>
-              </div>
-              <h2 className={`uppercase mt-6 ${colorClasses[item.color].text} font-medium mb-3`}>
-                {item.title}
-              </h2>
-              <p className="font-light text-base text-gray-500 mb-3 dark:text-gray-400">
-                {item.description}
-              </p>
-              <Link
-                href={`/montessori-prensipleri#${item.key}`}
-                className={`${colorClasses[item.color].text} flex items-center ${colorClasses[item.color].hoverText}`}
-              >
-                Daha Fazlası Blogumuzda
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 ml-1"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                  />
-                </svg>
-              </Link>
-            </div>
-          ))}
+        {/* Sınıf Görseli Solda, Yazı Sağda */}
+        <div className="flex flex-col md:flex-row items-center gap-10 mb-16">
+        <div className="relative w-full h-[400px]">
+          <Image
+            src="/images/kittens.webp"
+            alt="..."
+            fill
+            className="object-cover rounded-lg shadow-lg"
+            sizes="(max-width: 768px) 100vw, 800px"
+          />
+        </div>
+          <div className="md:w-1/2 text-left">
+            <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-4">
+              Çocuğunuzun eğitimi için özel olarak ayarlanmış sınıflar
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 text-lg">
+              Modern Montessori sınıflarımız, çocukların bireysel öğrenme tempolarına ve ilgi alanlarına göre
+              düzenlenmiş; her bir köşesi onların özgüvenle keşfetmesi için düşünülmüştür.
+            </p>
+          </div>
         </div>
 
-        {/* Additional Info Section */}
-        <div className="text-center mt-10 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg shadow-inner">
-          <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
-            Montessori eğitimi, sadece akademik başarıya odaklanmakla kalmaz, aynı zamanda çocukların sosyal, duygusal
-            ve fiziksel gelişimlerini de destekler. Kendi hızlarında öğrenme, problem çözme becerileri ve eleştirel
-            düşünme yetenekleri kazanmaları için zengin bir ortam sunarız. Çocuklarımızın özgüvenli, meraklı ve yaşam
-            boyu öğrenmeye açık bireyler olmalarını hedefliyoruz.
-          </p>
-          <Link
-            href="/blog/montessori-egitimi"
-            className="inline-flex items-center justify-center px-5 py-2 text-base font-medium text-white bg-purple-600 rounded-lg hover:bg-purple-700 focus:ring-4 focus:ring-purple-300 dark:focus:ring-purple-900 transition-colors duration-200"
-          >
-            Daha fazlasını okumak istiyorsanız bu konu hakkındaki blogumuzu inceleyebilirsiniz
-            <svg
-              className="w-4 h-4 ml-2"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
+        {/* Bahçe Görseli Sağda, Yazı Solda */}
+        <div className="flex flex-col md:flex-row-reverse items-center gap-10 mb-16">
+        <div className="relative w-full h-[400px]">
+          <Image
+            src="/images/kittens.webp"
+            alt="..."
+            fill
+            className="object-cover rounded-lg shadow-lg"
+            sizes="(max-width: 768px) 100vw, 800px"
+          />
+        </div>
+          <div className="md:w-1/2 text-left">
+            <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-4">
+              Çocuğunuzun arkadaşlarıyla zaman geçirirken öğrenebileceği parkımız
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 text-lg">
+              Yeşillikler içinde oyunla öğrenmenin iç içe geçtiği bahçemizde çocuklarımız hem eğlenir,
+              hem de paylaşmayı, birlikte hareket etmeyi ve çevresini keşfetmeyi öğrenir.
+            </p>
+          </div>
+        </div>
+
+        {/* Galeri Bölümü */}
+        <div className="w-full mt-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-8">
+            Okul Hayatından Kareler
+          </h2>
+          <div className="relative right-0">
+            <ul
+              className="relative flex flex-wrap px-1.5 py-1.5 list-none rounded-md bg-slate-100 dark:bg-gray-700"
+              role="tablist"
             >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
-              />
-            </svg>
-          </Link>
+              {galleryTabs.map((tab) => (
+                <li key={tab.key} className="z-30 flex-auto text-center">
+                  <button
+                    onClick={() => setActiveTab(tab.key)}
+                    className={`z-30 flex items-center justify-center w-full px-0 py-2 text-sm mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer ${
+                      activeTab === tab.key
+                        ? "bg-white text-purple-700 shadow dark:bg-gray-800 dark:text-white"
+                        : "text-slate-700 bg-inherit hover:text-purple-700 dark:text-gray-300 dark:hover:text-white"
+                    }`}
+                    role="tab"
+                    aria-selected={activeTab === tab.key}
+                    aria-controls={tab.key}
+                  >
+                    <span className="ml-1">{tab.name}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="p-5">
+            {galleryTabs.map((tab) => (
+              <div
+                key={tab.key}
+                className={`${activeTab === tab.key ? "block opacity-100" : "hidden opacity-0"} transition-opacity duration-300`}
+                id={tab.key}
+                role="tabpanel"
+              >
+                <div className="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4 font-sans text-base antialiased font-light leading-relaxed text-gray-700 dark:text-gray-300 h-max">
+                  {tab.images.map((image, imgIdx) => (
+                    <div key={imgIdx}>
+                      <Image
+                        className="w-full h-auto object-cover rounded-lg shadow-md" // h-40 yerine h-auto kullanıldı
+                        src={image.src}
+                        alt={image.alt}
+                        width={600}
+                        height={400}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -4,7 +4,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import DarkSwitch from "./DarkSwitch";
+import DarkSwitch from "./helpers/DarkSwitch";
 
 // Güncellenmiş navigasyon linkleri (Bize Katılın çıkarıldı)
 const navigation = [
@@ -35,10 +35,10 @@ export default function TopNavbar() {
                 <Link href="/" className="flex items-center">
                   <Image
                     src="/images/cengelci-logo.svg"
-                    alt="Çengelci Montessori Logo" // Alt metin güncellendi
+                    alt="Çengelci Montessori Logo"
                     width={36}
                     height={36}
-                    className="h-6 mr-3 sm:h-9"
+                    className="mr-3"
                   />
                   <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
                     Çengelci Montessori
