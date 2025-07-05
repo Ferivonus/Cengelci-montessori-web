@@ -1,5 +1,5 @@
 import JobApplicationSection from "@/components/fully_pages/JobApplicationSection";
-import TopNavbar from "@/components/TopNavbar";
+import TopNavbar from "@/components/generals/TopNavbar";
 
 export default function BizeKatilinPage() {
     return (

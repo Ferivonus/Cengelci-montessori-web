@@ -4,7 +4,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import DarkSwitch from "./helpers/DarkSwitch";
+import DarkSwitch from "../helpers/DarkSwitch";
 
 // Güncellenmiş navigasyon linkleri (Bize Katılın çıkarıldı)
 const navigation = [

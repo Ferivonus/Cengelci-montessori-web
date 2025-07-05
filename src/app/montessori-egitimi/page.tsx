@@ -1,5 +1,5 @@
 import MontessoriEducationPage from "@/components/fully_pages/MontessoriEducationPage";
-import TopNavbar from "@/components/TopNavbar";
+import TopNavbar from "@/components/generals/TopNavbar";
 
 export default function MontessoriEgitimi() {
   return (
