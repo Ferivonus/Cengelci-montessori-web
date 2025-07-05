@@ -8,10 +8,9 @@ export default function Home() {
       <TopNavbar />
       <main >
 
-        <FeatureSection />
-        
+        <FeatureSection /> 
         <AboutSchoolSection />
-        // Motivasyon mektubu için state
+
       </main>
     </div>
   );
