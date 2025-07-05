@@ -32,7 +32,7 @@ export default function JobApplicationSection() {
   };
 
   return (
-    <section className="py-16 bg-white dark:bg-gray-800 pt-20"> {/* pt-20 (padding-top: 5rem) eklendi */}
+    <section className="py-16 bg-white dark:bg-gray-800 pt-25"> {/* pt-20 (padding-top: 5rem) eklendi */}
       <div className="max-w-4xl mx-auto px-6 text-center">
         {/* Başlık */}
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-6">
